@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Függvény, eljárás feladatok - javaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Task01 starts here -->
+        <h1>Feladat 01</h1>
+        <p>Feladat - Készítsünk függvényt, amelynek első bemenő paramétere egy egész szám, a termék ára,
+            második paramétere az ÁFA értéke. A függvény térjen vissza a termék bruttó árával! Az eredményt a
+            felugró ablakban jelenítsük meg!</p>
+        <form method="post">
+            <div class="col-md-12 my-2">
+                <label for="netPriceT01">Kérem, adja meg a termék nettó árát: </label>
+                <input class="form-control" type="number" name="netPriceT01" id="netPriceT01" required>
+            </div>
+            <div class="col-md-12 my-2">
+                <label for="vatT01">Kérem, adja meg az áfa összegét: </label>
+                <input class="form-control" type="number" name="vatT01" id="vatT01" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="getTask01()">Eredmény</button>
+                </div>
+                <div class="col-3 mt-3">
+                    <p id="result01"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task02 starts here -->
+        <h1>Feladat 02</h1>
+        <p>Feladat – Készítsünk metódust, ami egy számról eldönti, hogy prím szám –e? Az eredményt a felugró ablakban
+            jelenítsük meg!</p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="numberT02">Kérem, adja meg a vizsgálandó számot: </label>
+                <input class="form-control" type="number" name="numberT02" id="numberT02" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask02()">Vizsgálat</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task03 starts here -->
+        <h1>Feladat 03</h1>
+        <p>3. Feladat – Készítsünk metódust, ami egy szövegről eldönti, hogy palindrome –e? (Pld. Rád rohan a
+            hordár.). Az eredményt a HTML kimeneten jelenítsük meg!</p>
+        <form method="post">
+            <div class="col-md-12 my-2">
+                <label for="inputTextT03">Kérem, adja meg az eldöntendő szöveget: </label>
+                <input class="form-control" type="text" name="inputTextT03" id="inputTextT03" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask03()">Eredmény</button>
+                </div>
+                <div class="col-3 mt-3">
+                    <p id="result03"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task04 starts here -->
+        <h1>Feladat 04</h1>
+        <p>4. Feladat - Készítsünk függvényt/eljárás, amelynek bemenő paramétere, hogy milyen hosszú jelszót szeretnénk,
+            visszatérése a generált jelszó! Kizárólag angol ABC betűi és számok szerepelhetnek a jelszóban,
+            kisbetű-nagybetű vegyesen véletlenszerűen!</p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="pwLenghtT04">Kérem, adja meg milyen hosszú jelszót szeretne: </label>
+                <input class="form-control" type="number" name="pwLenghtT04" id="pwLenghtT04" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask04()">Generálás</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result04"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task05 starts here -->
+        <h1>Feladat 05</h1>
+        <p>Feladat – Két számról döntsük el, hogy osztói –e egymásnak maradék nélkül!</p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="number1T05">Kérem, adja meg az első számot </label>
+                <input class="form-control" type="number" name="number1T05" id="number1T05" required>
+            </div>
+            <div class="col-md-6 my-2">
+                <label for="number2T05">Kérem, adja meg az első számot </label>
+                <input class="form-control" type="number" name="number2T05" id="number2T05" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask05()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result05"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task06 starts here -->
+        <h1>Feladat 06</h1>
+        <p>Feladat – Készítsünk ötöslottó alkalmazást, generáljunk le 5 darab lehetséges nyerőszámot! Egy héten egy
+            számot csak egyszer húzhatnak ki! Az eredményt a HTML kimeneten jelenítsük meg!</p>
+        <form method="post">
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask06()">Lottó számok</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result06"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task07 starts here -->
+        <h1>Feladat 07</h1>
+        <p>Készítünk alkalmazást, amely egy teljes év lehetséges hatoslottó számait legenerálja! Egy
+            héten egy számot csak egyszer húzhatnak ki! Az eredményt a HTML kimeneten jelenítsük meg!</p>
+        <form method="post">
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask07()">Lottó számok</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <div id="lotteryContainer">
+                        <!-- Ide fognak kerülni az újonnan létrehozott input mezők és címkék -->
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <hr>
+        <!-- Task08 starts here -->
+        <h1>Feladat 08</h1>
+        <p>Feladat - Készítsünk alkalmazást, amely egy szövegről elárulja, a karakterek hány százaléka
+            magánhangzó! A speciális karaktereket ne vegyük figyelembe a számításkor!</p>
+        <form method="post">
+            <div class="col-md-12 my-2">
+                <label for="textT08">Kérem, írja ide a vizsgálandó szöveget: </label>
+                <textarea class="form-control" name="textT08" id="textT08" cols="30" rows="5"></textarea>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask08()">Vizsgálat</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result08"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task09 starts here -->
+        <h1>Feladat 09</h1>
+        <p>Feladat – Pitagorasz tétel  kérjünk be a derékszögű háromszög 2 befogóját, majd írjuk ki az átfogó értékét!
+        </p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="leg1T09">Kérem, adja meg a háromszög egyik mefogóját: </label>
+                <input class="form-control" type="number" name="leg1T09" id="leg1T09" required>
+            </div>
+            <div class="col-md-6 my-2">
+                <label for="leg2T09">Kérem, adja meg a háromszög másik mefogóját: </label>
+                <input class="form-control" type="number" name="leg2T09" id="leg2T09" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask09()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result09"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task10 starts here -->
+        <h1>Feladat 10</h1>
+        <p>Feladat – Programunk kérje be egy autó fogyasztását (literben 100 km-en), a benzin literenkénti árát és a
+            megteendő út hosszát, majd számítsa ki az útiköltséget!</p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="consumptionT10">Kérem, adja meg az autó fogyasztását (literben 100 km-en): </label>
+                <input class="form-control" type="number" name="consumptionT10" id="consumptionT10" required>
+            </div>
+            <div class="col-md-6 my-2">
+                <label for="petrolPriceT10">Kérem, adja meg a benzin literenkénti árát: </label>
+                <input class="form-control" type="number" name="petrolPriceT10" id="petrolPriceT10" required>
+            </div>
+            <div class="col-md-6 my-2">
+                <label for="roadLengthT10">Kérem, adja meg a megteendő út hosszát: </label>
+                <input class="form-control" type="number" name="roadLengthT10" id="roadLengthT10" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask10()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result10"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task11 starts here -->
+        <h1>Feladat 11</h1>
+        <p>Feladat – Programunk kérje be az Euró árfolyamát (1 € hány Ft-ot ér), majd azt, hogy hány eurót
+            akarunk átváltani Ft-ba, majd írja ki, hogy hány Ft az átváltott euró.</p>
+        <form method="post">
+            <div class="col-md-12 my-2">
+                <label for="euroExchangeRate">Kérem, adja meg az Euró árfolyamát (1 € hány Ft-ot ér): </label>
+                <input class="form-control" type="number" name="euroExchangeRate" id="euroExchangeRate" required>
+            </div>
+            <div class="col-md-12 my-2">
+                <label for="amountT11">Kérem, adja meg mennyi eurót akar váltani forintra: </label>
+                <input class="form-control" type="number" name="amountT11" id="amountT11" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask11()">Eredmény</button>
+                </div>
+                <div class="col-3 mt-3">
+                    <p id="result11"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task12 starts here -->
+        <h1>Feladat 12</h1>
+        <p>Hozzunk létre alkalmazást, amely kiszámolja a kocka felszínét és térfogatát!</p>
+        <form method="post">
+            <div class="col-md-12 my-2">
+                <label for="edgeLengthT12">Kérem, adja meg a kocka élhosszát: </label>
+                <input class="form-control" type="number" name="edgeLengthT12" id="edgeLengthT12" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask12()">Eredmény</button>
+                </div>
+                <div class="col-3 mt-3">
+                    <p id="result12"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task13 starts here -->
+        <h1>Feladat 13</h1>
+        <p>Olvassuk be egy egyenes körkúp sugarát és magasságát, majd számoljuk ki belőle a térfogatát és a
+            felszínét!</p>
+        <form method="post">
+            <div class="col-md-12 my-2">
+                <label for="radiusT13">Kérem, adja meg a körkúp sugarát: </label>
+                <input class="form-control" type="number" name="radiusT13" id="radiusT13" required>
+            </div>
+            <div class="col-md-12 my-2">
+                <label for="heightT13">Kérem, adja meg a körkúp magasságát: </label>
+                <input class="form-control" type="number" name="heightT13" id="heightT13" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask13()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result13"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task14 starts here -->
+        <h1>Feladat 14</h1>
+        <p> Feladat - Készítsünk függvényt tombFeltolt() néven, amely feltölt véletlen számokkal egy tömböt a
+            felhasználótól érkező és véletlenszerű bemenő paraméterekkel. Az első paraméter legyen az elemszám (hány
+            darab elem legyen a tömbben)  ez legyen véletlen szám 5-20 között, a második a
+            véletlen számok alsó határa, a harmadik pedig a felső határa, melyeket a felhasználó adjon meg. A függvény
+            visszatérése tömb adatszerkezet legyen! A következő feladatokat függvények segítségével oldjuk meg!
+        </p>
+        <ul>
+            <li>a. Hozzunk létre egy eljárás, amely kiírja a tömb elemeit a HTML kimenetre egymás mellé
+                vesszővel elválasztva, utolsó elem után ne legyen vessző!</li>
+            <li> b. Hozzunk létre függvényt, amely a páros elemek összegével tér vissza! Az eredményt a
+                HTML kimeneten jelenítsük meg!</li>
+            <li> c. Hozzunk létre függvényt, amelynek visszatérése a páratlan elemek átlaga! Az eredményt a HTML
+                kimeneten jelenítsük meg!</li>
+            <li>d. Legkisebb érték meghatározására hozzunk létre egy függvényt. Az eredményt a HTML
+                kimeneten jelenítsük meg!</li>
+            <li>e. Legkisebb értékű elem indexével is térjen vissza egy függvény. Több ilyen érték is lehet. Az
+                eredményt a HTML kimeneten jelenítsük meg!</li>
+            <li>f. A tömbből véletlenszerűen jelenítsünk meg 1 db elemet! Az eredményt felugró
+                ablakban jelenítsük meg!</li>
+            <li>g. A listából minden 5. elemet jelenítsünk meg a HTML kiementen!</li>
+            <li> h. A HTML kimeneten jelenítsük meg a hárommal maradék nélkül osztható számokat!
+                Amennyiben esetleg nem volt ilyen, arról is tájékoztassuk a felhasználót!</li>
+        </ul>
+        <form method="post">
+            <div class="col-md-12 my-2">
+                <label for="elementNumberT14">Kérem, adja meg hány elemű legyen a tömb: </label>
+                <input class="form-control" type="number" name="elementNumberT14" id="elementNumberT14" required>
+            </div>
+            <div class="col-md-12 my-2">
+                <label for="lowerLimitT14">Kérem, adja meg a véletlen számok alsó határát: </label>
+                <input class="form-control" type="number" name="lowerLimitT14" id="lowerLimitT14" required>
+            </div>
+            <div class="col-md-12 my-2">
+                <label for="upperLimitT14">Kérem, adja meg a véletlen számok felső határát: </label>
+                <input class="form-control" type="number" name="upperLimitT14" id="upperLimitT14" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="fillArrayT14()">Tömb feltölt</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="displayArrayT14()">Tömb kiír</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14/a"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="getSumOfEvensT14()">Párosok elemek
+                        összege</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14/b"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="getAverageOfOddsT14()">Páratlan elemek
+                        átlaga</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14/c"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="getMinT14()">Legkissebb érték</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14/d"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="getMinIndexT14()">Legkissebb érték(ek)
+                        indexe</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14/e"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="displayRandomItem()">Véletlen elem</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14/f"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="displayEveryFifthItem()">Minden 5. elem</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14/g"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="displayDevisibleBy3T14()">Minden 3-mal osztható</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result14/h"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task15 starts here -->
+        <h1>Feladat 15</h1>
+        <p>Kérjük be a felhasználó tömegét kg-ban és magasságát cm-ben, majd számítsuk ki és írjuk a képernyőre a felhasználó testtömeg-indexét a következő képlet alapján: 
+            A testtömeg-index és táblázat alapján írjuk ki szövegesen a testsúly-osztályzást!</p>
+        <form method="post">
+            <div class="col-md-12 my-2">
+                <label for="weightT15">Kérem, adja meg a súlyát(kg): </label>
+                <input class="form-control" type="number" name="weightT15" id="weightT15" required>
+            </div>
+            <div class="col-md-12 my-2">
+                <label for="heightT15">Kérem, adja meg a magaságát((m)): </label>
+                <input class="form-control" type="number" name="heightT15" id="heightT15" required>
+            </div>
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask15()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result15"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task16 starts here -->
+        <h1>Feladat 16</h1>
+        <p>Olvassuk be, hogy a felhasználó átlagosan hány órát alszik naponta (egész számként), és jellemezzük az alvásidejét a következő módon: 0-6 óráig kevés, 7-9 óráig átlagos, 10-12 óráig sok, 13-24 óráig nagyon sok!</p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="sleepingHoursT16">Kérem, adja meg hány órát alszik egy nap: </label>
+                <input class="form-control" type="number" name="sleepingHoursT16" id="sleepingHoursT16" required>
+            </div>            
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask16()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result16"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task17 starts here -->
+        <h1>Feladat 17</h1>
+        <p>Készítsünk egy másodfokú egyenlet megoldó alkalmazást! Kérjük be a, b és c értékét, majd számoljuk ki x1-et és x2-t, ahol:</p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="aT17">Kérem, adja meg az a értékét: </label>
+                <input class="form-control" type="number" name="aT17" id="aT17" required>
+            </div>            
+            <div class="col-md-6 my-2">
+                <label for="bT17">Kérem, adja meg az b értékét: </label>
+                <input class="form-control" type="number" name="bT17" id="bT17" required>
+            </div>            
+            <div class="col-md-6 my-2">
+                <label for="cT17">Kérem, adja meg az c értékét: </label>
+                <input class="form-control" type="number" name="cT17" id="cT17" required>
+            </div>            
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask17()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result17"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task18 starts here -->
+        <h1>Feladat 18</h1>
+        <p>Írjuk ki 3 db pénzfeldobás eredményét (fej vagy írás véletlenszerűen, szövegesen jelenjen meg)!</p>
+        <form method="post">                
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask18()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result18"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task19 starts here -->
+        <h1>Feladat 19</h1>
+        <p>Egy pénztáros a napi bevételének 5%-át megkapja jutalomként. Kérd be a napi bevételt, és írd a képernyőre, hogy mennyi a jutalom! A jutalmat kerekítsd egész értékre!</p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="dailyIncomeT19">Kérem, adja meg a napi bevételét: </label>
+                <input class="form-control" type="number" name="dailyIncomeT19" id="dailyIncomeT19" required>
+            </div>            
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask19()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result19"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <!-- Task20 starts here -->
+        <h1>Feladat 20</h1>
+        <p>Kérjük be a felhasználó születési helyét, majd döntsük el, hogy vidéken vagy a fővárosban született</p>
+        <form method="post">
+            <div class="col-md-6 my-2">
+                <label for="placeOfBirth">Kérem, adja meg a születési helyét: </label>
+                <input class="form-control" type="text" name="placeOfBirth" id="placeOfBirth" required>
+            </div>            
+            <div class="row">
+                <div class="col-3 my-2">
+                    <button class="btn btn-primary" type="button" onclick="solveTask20()">Eredmény</button>
+                </div>
+                <div class="col-9 mt-3">
+                    <p id="result20"></p>
+                </div>
+            </div>
+        </form>
+        <hr>
+    </div>
+
+    <script src="js/task01.js"></script>
+    <script src="js/task02.js"></script>
+    <script src="js/task03.js"></script>
+    <script src="js/task04.js"></script>
+    <script src="js/task05.js"></script>
+    <script src="js/task06.js"></script>
+    <script src="js/task07.js"></script>
+    <script src="js/task08.js"></script>
+    <script src="js/task09.js"></script>
+    <script src="js/task10.js"></script>
+    <script src="js/task11.js"></script>
+    <script src="js/task12.js"></script>
+    <script src="js/task13.js"></script>
+    <script src="js/task14.js"></script>
+    <script src="js/task15.js"></script>
+    <script src="js/task16.js"></script>
+    <script src="js/task17.js"></script>
+    <script src="js/task18.js"></script>
+    <script src="js/task19.js"></script>
+    <script src="js/task20.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
