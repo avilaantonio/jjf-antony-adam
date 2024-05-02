@@ -1,0 +1,3 @@
+input:placeholder-shown {
+    text-overflow: ellipsis !important;
+  }

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jff-2024-02-19-fv-gyak-25</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-secondary">
+    <header>
+        <div class="row p-1 m-0 g-0" style="background-color: rgba(0, 0, 0, .65);">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="btn btn-light navbar-toggler mb-3 mx-auto" type="button" data-toggle="collapse" data-target="#navBtns" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <p class="mx-auto my-auto">FELADATOK</p>
+                </button>
+                <div class="navbar-collapse collapse" id="navBtns">
+                    <div class="d-flex flex-row flex-wrap gap-2 justify-content-center mx-auto">
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-primary fw-semibold" id="btnTaskCall01">Feladat01</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-secondary fw-semibold" id="btnTaskCall02">Feladat02</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-success fw-semibold" id="btnTaskCall03">Feladat03</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-danger fw-semibold" id="btnTaskCall04">Feladat04</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-warning fw-semibold" id="btnTaskCall05">Feladat05</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-info fw-semibold" id="btnTaskCall06">Feladat06</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-light fw-semibold" id="btnTaskCall07">Feladat07</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-dark text-light border-secondary fw-semibold" id="btnTaskCall08">Feladat08</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-primary text-warning fw-semibold" id="btnTaskCall09">Feladat09</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-secondary text-dark fw-semibold" id="btnTaskCall10">Feladat10</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-success text-info fw-semibold" id="btnTaskCall11">Feladat11</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-danger text-dark fw-semibold" id="btnTaskCall12">Feladat12</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-warning text-danger fw-semibold" id="btnTaskCall13">Feladat13</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-info text-primary fw-semibold" id="btnTaskCall14">Feladat14</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-light text-danger fw-semibold" id="btnTaskCall15">Feladat15</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-dark border-secondary text-warning fw-semibold" id="btnTaskCall16">Feladat16</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-primary text-dark fw-semibold" id="btnTaskCall17">Feladat17</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-secondary text-dark fw-semibold" id="btnTaskCall18">Feladat18</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-success text-dark fw-semibold" id="btnTaskCall19">Feladat19</button>
+                        <button style="min-width:5rem;" class="nav-link btn fs-6 btn-danger text-dark fw-semibold" id="btnTaskCall20">Feladat20</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="row bg-light g-0">
+        <div id="liveAlertPlaceholder" class="col-6 d-inline mx-auto text-center fs-5"></div>
+        <hr class="border-secondary border border-3 my-0 mt-1">
+        <hr class="border-dark border border-3 my-1">
+        <div class="col">
+            <div id="taskContainer" class="text-center d-flex flex-column gap-3 mx-auto my-4">
+                <div id="taskDiv01" class="d-none flex-column w-75 justify-content-center text-primary bg-secondary col-10 mx-auto border border-3 border-primary rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task01 -->
+                    <p class="fs-5"><strong>Feladat01:</strong> Készítsünk függvényt, amelynek első bemenő paramétere egy egész szám, a termék ára, második paramétere az ÁFA értéke. A függvény térjen vissza a termék bruttó árával! Az eredményt a felugró ablakban jelenítsük meg!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask01" class="form w-50 mx-auto text-warp">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-info rounded" type="number" name="task01data01" id="task01data01" placeholder="Termék nettó ára" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-info rounded" type="number" name="task01data02" id="task01data02" placeholder="ÁFA %-ban (pl.: 21)" min="1" max="100" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat01 eredménye:</p>
+                    <p class="fw-bold fs-5 text-wrap mx-auto px-2 rounded" id="resultTask01">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-primary mx-auto" onclick="resultTask01()">Mennyi?</button>
+                </div>
+                <div id="taskDiv02" class="d-none flex-column w-75 justify-content-center text-secondary bg-success col-10 mx-auto border border-3 border-secondary rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task02 -->
+                    <p class="fs-5"><strong>Feladat02:</strong> Készítsünk metódust, ami egy számról eldönti, hogy prím szám–e?</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask02">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-secondary form-control col-8 p-1 m-1 mx-auto border-secondary rounded" type="number" name="task02data01" id="task02data01"  placeholder="Adjon meg egy pozitív egész számot." min="0" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat02:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask02">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-secondary mx-auto" onclick="resultTask02()">Prím?</button>
+                </div>
+                <div id="taskDiv03" class="d-none flex-column w-75 justify-content-center text-success bg-secondary col-10 mx-auto border border-3 border-success rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task03 -->
+                    <p class="fs-5"><strong>Feladat03:</strong> Készítsünk metódust, ami egy szövegről eldönti, hogy palindrome –e? (Pld. Rád rohan a hordár.). Az eredményt a HTML kimeneten jelenítsük meg!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask03">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-success form-control col-8 p-1 m-1 mx-auto border-success rounded" type="text" name="task03data01" id="task03data01"  placeholder="Ide írja be szöveget." required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat03:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask03">...</p>
+                    <button type="button" style="min-width:6rem;" class="btn fs-5 btn-success mx-auto" onclick="resultTask03()">Vizsgálat</button>
+                </div>
+                <div id="taskDiv04" class="d-none flex-column w-75 justify-content-center text-danger bg-secondary col-10 mx-auto border border-3 border-danger rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task04 -->
+                    <p class="fs-5"><strong>Feladat04:</strong> Készítsünk függvényt/eljárás, amelynek bemenő paramétere, hogy milyen hosszú jelszót szeretnénk, visszatérése a generált jelszó! Kizárólag angol ABC betűi és számok szerepelhetnek a jelszóban, kisbetű-nagybetű vegyesen véletlenszerűen!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask04">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-danger form-control col-8 p-1 m-1 mx-auto border-danger rounded" type="number" name="task04data01" id="task04data01"  placeholder="Hány karakteres legyen a jelszó? Min.: 3" min="3" max="80" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat04:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask04">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-danger mx-auto" onclick="resultTask04()">Generál</button>
+                </div>
+                <div id="taskDiv05" class="d-none flex-column w-75 justify-content-center text-warning bg-secondary col-10 mx-auto border border-3 border-warning rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .9;">
+                    <!-- Task05 -->
+                    <p class="fs-5"><strong>Feladat05:</strong> Két számról döntsük el, hogy osztói–e egymásnak maradék nélkül!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask05">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-secondary form-control col-8 p-1 m-1 mx-auto border-warning rounded" type="number" name="task05data01" id="task05data01"  placeholder="Adjon meg egy számot" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-secondary form-control col-8 p-1 m-1 mx-auto border-warning rounded" type="number" name="task05data02" id="task05data02"  placeholder="Adjon meg egy másik számot" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat05:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask05">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-warning mx-auto" onclick="resultTask05()">Generál!</button>
+                </div>
+                <div id="taskDiv06" class="d-none flex-column w-75 justify-content-center text-light bg-info col-10 mx-auto border border-3 border-info rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: 1;">
+                    <!-- Task06 -->
+                    <p class="fs-5"><strong>Feladat06:</strong> Készítsünk ötöslottó alkalmazást, generáljunk le 5 darab lehetséges nyerőszámot! Egy héten egy számot csak egyszer húzhatnak ki!</p>
+                    <p class="mt-2 fs-4">Feladat06:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask06">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-light mx-auto" onclick="resultTask06()">Húzás</button>
+                </div>
+                <div id="taskDiv07" class="d-none flex-column w-75 justify-content-center text-dark bg-info col-10 mx-auto border border-3 border-info rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task07 -->
+                    <p class="fs-5"><strong>Feladat07:</strong> Készítünk alkalmazást, amely egy teljes év lehetséges hatoslottó számait legenerálja! Egy héten egy számot csak egyszer húzhatnak ki!</p>
+                    <p class="mt-2 fs-4">Feladat07:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask07"></p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-dark mx-auto" onclick="resultTask07()">Húzzuk ki mind!</button>
+                </div>
+                <div id="taskDiv08" class="d-none flex-column w-75 justify-content-center text-light bg-dark col-10 mx-auto border border-3 border-light rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .9;">
+                    <!-- Task08 -->
+                    <p class="fs-5"><strong>Feladat08:</strong> Készítsünk alkalmazást, amely egy szövegről elárulja, a karakterek hány százaléka magánhangzó! A speciális karaktereket ne vegyük figyelembe a számításkor!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask08">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-dark form-control col-8 p-1 m-1 mx-auto border-light rounded" type="text" name="task08data01" id="task08data01"  placeholder="Ide írja be szöveget." required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat08:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask08">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-light mx-auto" onclick="resultTask08()">Hány %-a?</button>
+                </div>
+                <div id="taskDiv09" class="d-none flex-column w-75 justify-content-center text-primary bg-secondary col-10 mx-auto border border-3 border-primary rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task09 -->
+                    <p class="fs-5"><strong>Feladat09:</strong> Pitagorasz tétel => kérjük be a derékszögű háromszög 2 befogóját, majd írjuk ki az átfogó értékét!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask09">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-primary rounded" type="number" name="task09data01" id="task09data01"  placeholder="Adja meg a háromszög egyik befogóját cm-ben (pld. 10)" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-primary rounded" type="number" name="task09data02" id="task09data02"  placeholder="Adja meg a háromszög másik befogóját cm-ben (pld. 12)" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat09 eredménye:</p>
+                    <p class="fw-bold fs-5 text-wrap mx-auto px-2 rounded" id="resultTask09">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-primary mx-auto" onclick="resultTask09()">Mekkora?</button>
+                </div>
+                <div id="taskDiv10" class="d-none flex-column w-75 justify-content-center text-secondary bg-success col-10 mx-auto border border-3 border-secondary rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task10 -->
+                    <p class="fs-5"><strong>Feladat10:</strong> Programunk kérje be egy autó fogyasztását (literben 100 km-en), a benzin literenkénti árát és a megteendő út hosszát, majd számítsa ki az útiköltséget!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <span class="text-center display-6">Útiköltség kalkulátor</span>
+                        <form id="formTask10" class="mt-4">
+                            <input type="number" class="d-block w-75 text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-secondary form-control col-8 p-1 m-1 mx-auto border-secondary rounded" id="task10data01" name="task10data01" placeholder="Fogyasztás (100km)*" required>
+                            <input type="number" class="d-block w-75 text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-secondary form-control col-8 p-1 m-1 mx-auto border-secondary rounded" id="task10data02" name="task10data02" placeholder="Útvonal hossza (km)*" required>
+                            <input type="number" class="d-block w-75 text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-secondary form-control col-8 p-1 m-1 mx-auto border-secondary rounded" id="task10data03" name="task10data03" placeholder="Üzemanyag ár (Ft/km)*" required>
+                        </form>  
+                    </div>
+                    <p class="mt-2 fs-4">Feladat10:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask10">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-secondary mx-auto" onclick="resultTask10()">Mennyiii?</button>
+                </div>
+                <div id="taskDiv11" class="d-none flex-column w-75 justify-content-center text-success bg-secondary col-10 mx-auto border border-3 border-success rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task11 -->
+                    <p class="fs-5"><strong>Feladat11:</strong> Programunk kérje be az Euró árfolyamát (1 € hány Ft-ot ér), majd azt, hogy hány eurót akarunk átváltani Ft-ba, majd írja ki, hogy hány Ft az átváltott euró.</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask11">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-success form-control col-8 p-1 m-1 mx-auto border-success rounded" type="number" name="task11data01" id="task11data01"  placeholder="Adja meg az Euró aktuális árfolyamát Ft-ban (pld. 400)" min="0" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-success form-control col-8 p-1 m-1 mx-auto border-success rounded" type="number" name="task11data02" id="task11data02"  placeholder="Adja meg mennyit szeretne kiváltani" min="0" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat11:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask11">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-success mx-auto" onclick="resultTask11()">Valós?</button>
+                </div>
+                <div id="taskDiv12" class="d-none flex-column w-75 justify-content-center text-danger bg-secondary col-10 mx-auto border border-3 border-danger rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task12 -->
+                    <p class="fs-5"><strong>Feladat12:</strong> Hozzunk létre alkalmazást, amely kiszámolja a kocka felszínét és térfogatát!
+                    </p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask12">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-danger form-control col-8 p-1 m-1 mx-auto border-danger rounded" type="number" name="task12data01" id="task12data01"  placeholder="Adja meg a kocka oldalának méretét cm-ben (pld. 10.34)" min="0" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat12:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask12">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-danger mx-auto" onclick="resultTask12()">Nos?</button>
+                </div>
+                <div id="taskDiv13" class="d-none flex-column w-75 justify-content-center text-warning bg-secondary col-10 mx-auto border border-3 border-warning rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .9;">
+                    <!-- Task13 -->
+                    <p class="fs-5"><strong>Feladat13:</strong> Olvassuk be egy egyenes körkúp sugarát és magasságát, majd számoljuk ki belőle a térfogatát és a felszínét!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask13">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-danger form-control col-8 p-1 m-1 mx-auto border-warning rounded" type="number" name="task13data01" id="task13data01"  placeholder="Adja meg az egyenes körkúp sugarát cm-ben (pld. 20)" min="0" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-danger form-control col-8 p-1 m-1 mx-auto border-warning rounded" type="number" name="task13data02" id="task13data02"  placeholder="Adja meg az egyenes körkúp magasságát cm-ben (pld. 40)" min="0" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat13:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask13">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-warning mx-auto" onclick="resultTask13()">Generál!</button>
+                </div>
+                <div id="taskDiv14" class="d-none flex-column w-75 justify-content-center text-light bg-info col-10 mx-auto border border-3 border-info rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: 1;">
+                    <!-- Task14 -->
+                    <p class="fs-5"><strong>Feladat14:</strong> Készítsünk fv-t, amely feltölt véletlen számokkal egy tömböt a felhasználótól érkező és véletlenszerű bemenő paraméterekkel. Az első paraméter legyen az elemszám egy véletlen szám 5-20 között, a második a véletlen számok alsó határa, a harmadik pedig a felső határa, melyeket a felhasználó adjon meg. A függvény visszatérése tömb adatszerkezet legyen!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask14">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-light rounded" type="number" name="task14data01" id="task14data01" placeholder="Adjon meg egy minimumot (pld. 5)" min="0" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-light rounded" type="number" name="task14data02" id="task14data02" placeholder="Adjon meg egy maximumot (pld. 20)" min="0" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat14:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask14">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-light mx-auto" onclick="resultTask14()">Mutat</button>
+                </div>
+                <div id="taskDiv15" class="d-none flex-column w-75 justify-content-center text-dark bg-info col-10 mx-auto border border-3 border-info rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task15 -->
+                    <p class="fs-5"><strong>Feladat15:</strong> Kérjük be a felhasználó tömegét kg-ban és magasságát cm-ben, majd számítsuk ki és írjuk a képernyőre a felhasználó testtömeg-indexét.</p>
+                    <table class="table table-responsive table-sm table-striped table-light align-middle mx-auto w-auto table-bordered border-2 border-secondary" style="font-size: .8rem;">
+                        <thead class="table-dark opacity-75">
+                            <tr>
+                                <th scope="col">Testtömegindex (kg/m²)</th>
+                                <th scope="col">Testsúlyosztályozás</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider ">
+                            <tr>
+                                <td><16</td>
+                                <td>súlyos soványság</td>
+                            </tr>
+                            <tr>
+                                <td>16-16.99</td>
+                                <td>mérsékelt soványság</td>
+                            </tr>
+                            <tr>
+                                <td>17-18.49</td>
+                                <td>enyhe soványság</td>
+                            </tr>
+                            <tr>
+                                <td>18.5-24.99</td>
+                                <td>normál testsúly</td>
+                            </tr>
+                            <tr>
+                                <td>25-29.99</td>
+                                <td>túlsúlyos</td>
+                            </tr>
+                            <tr>
+                                <td>30-34.99</td>
+                                <td>I. fokú elhízás</td>
+                            </tr>
+                            <tr>
+                                <td>35-39.99</td>
+                                <td>II. fokú elhízás</td>
+                            </tr>
+                            <tr>
+                                <td>>=40</td>
+                                <td>III. fokú (súlyos) elhízás</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask15">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-danger form-control col-8 p-1 m-1 mx-auto border-dark rounded" type="number" name="task15data01" id="task15data01" placeholder="Adja meg testsúlyát kg-ban (pld. 65)" min="0" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-danger form-control col-8 p-1 m-1 mx-auto border-dark rounded" type="number" name="task15data02" id="task15data02" placeholder="Adja meg a magasságát cm-ben (pld. 177)" min="0" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat15:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask15">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-dark mx-auto" onclick="resultTask15()">Számol</button>
+                </div>
+                <div id="taskDiv16" class="d-none flex-column w-75 justify-content-center text-light bg-dark col-10 mx-auto border border-3 border-light rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .9;">
+                    <!-- Task16 -->
+                    <p class="fs-5"><strong>Feladat16:</strong> Olvassuk be, hogy a felhasználó átlagosan hány órát alszik naponta (egész számként), és jellemezzük az alvásidejét a következő módon: 0-6 óráig kevés, 7-9 óráig átlagos, 10-12 óráig sok, 13-24 óráig nagyon sok!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask16">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-dark form-control col-8 p-1 m-1 mx-auto border-light rounded" type="number" name="task16data01" id="task16data01" placeholder="Adja meg, hogy hány órát alszik egy nap (0-24h)" min="0" max="24" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat16:</p>
+                    <p class="fw-bold fs-5 text-wrap mx-auto g-0" id="resultTask16">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-light mx-auto" onclick="resultTask16()">Mutat</button>
+                </div>
+                <div id="taskDiv17" class="d-none flex-column w-75 justify-content-center text-primary bg-secondary col-10 mx-auto border border-3 border-primary rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task17 -->
+                    <p class="fs-5"><strong>Feladat17:</strong> Készítsünk egy másodfokú egyenlet megoldó alkalmazást! Kérjük be a, b és c értékét, majd számoljuk ki x1-et és x2-t.</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask17">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-primary rounded" type="number" name="task17data01" id="task17data01" placeholder="Adja meg a-t" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-primary rounded" type="number" name="task17data02" id="task17data02" placeholder="Adja meg b-t" required>
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-primary form-control col-8 p-1 m-1 mx-auto border-primary rounded" type="number" name="task17data03" id="task17data03" placeholder="Adja meg c-t" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat17 eredménye:</p>
+                    <p class="fw-bold fs-5 text-wrap mx-auto px-2 rounded" id="resultTask17">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-primary mx-auto" onclick="resultTask17()">Gondolkodj!</button>
+                </div>
+                <div id="taskDiv18" class="d-none flex-column w-75 justify-content-center text-secondary bg-success col-10 mx-auto border border-3 border-secondary rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task18 -->
+                    <p class="fs-5"><strong>Feladat18:</strong> Írjuk ki 3 db pénzfeldobás eredményét (fej vagy írás véletlenszerűen, szövegesen jelenjen meg)!</p>
+                    <p class="mt-2 fs-4">Feladat18:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask18">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-secondary mx-auto" onclick="resultTask18()">Generál?</button>
+                </div>
+                <div id="taskDiv19" class="d-none flex-column w-75 justify-content-center text-success bg-secondary col-10 mx-auto border border-3 border-success rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task19 -->
+                    <p class="fs-5"><strong>Feladat19:</strong> Egy pénztáros a napi bevételének 5%-át megkapja jutalomként. Kérd be a napi bevételt, és írd a képernyőre, hogy mennyi a jutalom! A jutalmat kerekítsd egész értékre!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask19">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-success form-control col-8 p-1 m-1 mx-auto border-success rounded" type="number" name="task19data01" id="task19data01" placeholder="Adja meg a napi bevételét Ft-ban (pld. 12000)" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat19:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask19">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-success mx-auto" onclick="resultTask19()">Mennyi?</button>
+                </div>
+                <div id="taskDiv20" class="d-none flex-column w-75 justify-content-center text-danger bg-secondary col-10 mx-auto border border-3 border-danger rounded p-3" style="--bs-border-opacity: .5; --bs-bg-opacity: .2;">
+                    <!-- Task20 -->
+                    <p class="fs-5"><strong>Feladat20:</strong> Kérjük be a felhasználó születési helyét, majd döntsük el, hogy vidéken vagy a fővárosban született!</p>
+                    <small class="mb-3"></small>
+                    <div class="col-10 d-inline mx-auto">
+                        <form id="formTask20">
+                            <input class="d-block text-center text-warp overflow-auto text-align-right fw-semibold fs-6 text-danger form-control col-8 p-1 m-1 mx-auto border-danger rounded" type="text" name="task20data01" id="task20data01" placeholder="Adja meg, hogy hol született" required>
+                        </form>   
+                    </div>
+                    <p class="mt-2 fs-4">Feladat20:</p>
+                    <p class="fw-bold fs-5 text-wrap" id="resultTask20">...</p>
+                    <button style="min-width:6rem;" class="btn fs-5 btn-danger mx-auto" onclick="resultTask20()">Hol?</button>
+                </div>
+            </div>
+        </div> 
+        <hr class="border-dark border border-3 my-1">
+        <hr class="border-secondary border border-3 my-0 mb-1">
+    </div>   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

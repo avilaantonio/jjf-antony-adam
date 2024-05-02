@@ -1,0 +1,1 @@
+# jff-24-02-19-fv-eljaras-feladatok
