@@ -1,21 +1,28 @@
 function startGame() {
     let numberOfCards = getNumberOfCards();
-    generatedCards(numberOfCards);   
-    console.log(numberOfCards);               
+    let randomPictures = generateRandomPicArrangement(numberOfCards);
+    generatedCards(numberOfCards, randomPictures);             
+}
+
+function generateRandomPicArrangement(numberOfCards) {
+    let pictures = [];
+    do {
+        let randomNumber = Math.floor(Math.random() * (numberOfCards)) + 1;
+        if (!pictures.includes(randomNumber)) {
+            pictures.push(randomNumber)
+        }
+    } while (pictures.length != numberOfCards);
+    return pictures;
 }
 
 function getNumberOfCards() {
     let difficultyLevel = Number(document.getElementById("difficultyLevel").value);            
-    let _1x4 = 4;
-    let _2x4 = 8;            
+            
     let numberOfCards;
-
-    switch (difficultyLevel) {
-        case 0: alert("Choose a difficulty level");
+    switch (difficultyLevel) {        
+        case 1: numberOfCards = 4;
             break;
-        case 1: numberOfCards = _1x4;
-            break;
-        case 2: numberOfCards = _2x4;
+        case 2: numberOfCards = 8;
             break;
         default: alert("Wrong data!!!");
             break;
@@ -23,7 +30,16 @@ function getNumberOfCards() {
     return numberOfCards;
 }
 
-function  generatedCards(numberOfCards) {
+function  generatedCards(numberOfCards, randomPictures) {
+    let randomPic = [];
+    do {
+        let randomNumber = Math.floor(Math.random() * (numberOfCards-1+1))+1;
+        if (!randomPic.includes(randomNumber)) {
+            randomPic.push(randomNumber)
+        }        
+    } while (randomPic.length != numberOfCards);
+    console.log(randomPic);
+
      for (let i = 0; i < numberOfCards; i++) {
 
         let div = document.createElement('div');
@@ -34,9 +50,19 @@ function  generatedCards(numberOfCards) {
         div2.classList.add('square');
         div2.classList.add('rounded');
         
-        div2.textContent = `Div ${i + 1}`;
+        div2.textContent = `Picture -  ${randomPic[i]}`;
         div.appendChild(div2);
 
         document.querySelector('.row').appendChild(div);
     }
 }
+
+//------------- later ---------------
+    // Select a card
+    /*
+    document.getElementsByClassName("selectCard").addEventListener("click", showImage);
+    
+    function showImage(){
+        
+    }
+    */
