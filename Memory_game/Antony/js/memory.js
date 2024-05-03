@@ -24,24 +24,19 @@ function getNumberOfCards() {
 }
 
 function  generatedCards(numberOfCards) {
-     // Generates x number of div
      for (let i = 0; i < numberOfCards; i++) {
-        // Create a new div
+
         let div = document.createElement('div');
-        // Add Bootstrap classes to div
         div.classList.add('col');
         div.classList.add('mb-3');
 
-        // Create inner div
         let div2 = document.createElement('div');
         div2.classList.add('square');
         div2.classList.add('rounded');
         
-        // Set content
         div2.textContent = `Div ${i + 1}`;
         div.appendChild(div2);
-
-        // Add the generated div to the row class
+s
         document.querySelector('.row').appendChild(div);
     }
 }
