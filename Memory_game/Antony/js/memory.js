@@ -27,6 +27,7 @@ function getNumberOfCards() {
         default: alert("Wrong data!!!");
             break;
     }
+    document.getElementById("startButton").disabled = true;
     return numberOfCards;
 }
 
