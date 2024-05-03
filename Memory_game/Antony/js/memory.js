@@ -36,7 +36,7 @@ function  generatedCards(numberOfCards) {
         
         div2.textContent = `Div ${i + 1}`;
         div.appendChild(div2);
-s
+
         document.querySelector('.row').appendChild(div);
     }
 }
