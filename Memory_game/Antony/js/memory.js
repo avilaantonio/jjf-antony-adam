@@ -35,6 +35,7 @@ function  generatedCards(numberOfCards) {
         // Create inner div
         let div2 = document.createElement('div');
         div2.classList.add('square');
+        div2.classList.add('rounded');
         
         // Set content
         div2.textContent = `Div ${i + 1}`;
