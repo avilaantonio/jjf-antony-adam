@@ -1,0 +1,7 @@
+.square {
+    background-color: rgb(106, 106, 210);
+    color: aliceblue;
+    text-align: center;
+    padding-top: 100%;            /* 1:1 square */
+    margin-bottom: 5px;
+}
