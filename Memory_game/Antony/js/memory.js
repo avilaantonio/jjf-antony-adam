@@ -30,11 +30,13 @@ function getNumberOfCards() {
     document.getElementById("startButton").disabled = true;
     return numberOfCards;
 }
+// 37. 
+let images = ['img/01a.jpg', 'img/01b.jpg', 'img/02a.jpg', 'img/02b.jpg'];
 
 function generatedCards(numberOfCards, randomPictures) {
     let randomPic = [];
     do {
-        let randomNumber = Math.floor(Math.random() * (numberOfCards - 1 + 1)) + 1;
+        let randomNumber = Math.floor(Math.random() * (numberOfCards)) + 1;
         if (!randomPic.includes(randomNumber)) {
             randomPic.push(randomNumber)
         }
@@ -47,11 +49,26 @@ function generatedCards(numberOfCards, randomPictures) {
         div.classList.add('col');
         div.classList.add('mb-3');
 
+        /*
+        function randomImg(numbers, img) {
+            img = [];
+            for (let i = 0; i < numbers.length; i++) {
+                img.push("img/img" + numbers[i] + ".jpg");
+            }
+            return img;
+        }
+        */
+
         let div2 = document.createElement('div');
         div2.classList.add('square');
         div2.classList.add('rounded');
+        div2.classList.add('d-none');
+        // classList.remove('d-flex');
 
-        div2.textContent = `Picture -  ${randomPic[i]}`;
+
+
+
+        div2.textContent = `p${randomPic[i]}`;
         div.appendChild(div2);
 
         document.querySelector('.row').appendChild(div);
@@ -66,10 +83,13 @@ let counter = 0;
 function showImage() {
     counter++;
     if (counter == 2) {
-        // comparison 
+        // comparison
+         
         if (condition) {
             
         }
         counter = 0;
     }
 }
+
+
