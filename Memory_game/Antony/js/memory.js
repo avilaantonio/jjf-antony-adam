@@ -1,7 +1,7 @@
 function startGame() {
     let numberOfCards = getNumberOfCards();
     let randomPictures = generateRandomPicArrangement(numberOfCards);
-    generatedCards(numberOfCards, randomPictures);             
+    generatedCards(numberOfCards, randomPictures);
 }
 
 function generateRandomPicArrangement(numberOfCards) {
@@ -16,10 +16,10 @@ function generateRandomPicArrangement(numberOfCards) {
 }
 
 function getNumberOfCards() {
-    let difficultyLevel = Number(document.getElementById("difficultyLevel").value);            
-            
+    let difficultyLevel = Number(document.getElementById("difficultyLevel").value);
+
     let numberOfCards;
-    switch (difficultyLevel) {        
+    switch (difficultyLevel) {
         case 1: numberOfCards = 4;
             break;
         case 2: numberOfCards = 8;
@@ -31,17 +31,17 @@ function getNumberOfCards() {
     return numberOfCards;
 }
 
-function  generatedCards(numberOfCards, randomPictures) {
+function generatedCards(numberOfCards, randomPictures) {
     let randomPic = [];
     do {
-        let randomNumber = Math.floor(Math.random() * (numberOfCards-1+1))+1;
+        let randomNumber = Math.floor(Math.random() * (numberOfCards - 1 + 1)) + 1;
         if (!randomPic.includes(randomNumber)) {
             randomPic.push(randomNumber)
-        }        
+        }
     } while (randomPic.length != numberOfCards);
     console.log(randomPic);
 
-     for (let i = 0; i < numberOfCards; i++) {
+    for (let i = 0; i < numberOfCards; i++) {
 
         let div = document.createElement('div');
         div.classList.add('col');
@@ -50,7 +50,7 @@ function  generatedCards(numberOfCards, randomPictures) {
         let div2 = document.createElement('div');
         div2.classList.add('square');
         div2.classList.add('rounded');
-        
+
         div2.textContent = `Picture -  ${randomPic[i]}`;
         div.appendChild(div2);
 
@@ -58,12 +58,18 @@ function  generatedCards(numberOfCards, randomPictures) {
     }
 }
 
-//------------- later ---------------
-    // Select a card
-    /*
-    document.getElementsByClassName("selectCard").addEventListener("click", showImage);
-    
-    function showImage(){
-        
+//------------------------------------
+
+document.getElementsByClassName("selectCard").addEventListener("click", showImage);
+
+let counter = 0;
+function showImage() {
+    counter++;
+    if (counter == 2) {
+        // comparison 
+        if (condition) {
+            
+        }
+        counter = 0;
     }
-    */
+}
