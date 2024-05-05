@@ -63,7 +63,7 @@ function generatedCards(numberOfCards, randomPictures) {
         div2.classList.add('square');
         div2.classList.add('rounded');
         div2.classList.add('d-none');
-        // classList.remove('d-flex');
+        
 
 
 
@@ -84,7 +84,7 @@ function showImage() {
     counter++;
     if (counter == 2) {
         // comparison
-         
+        // classList.remove('d-flex'); 
         if (condition) {
             
         }
