@@ -80,3 +80,13 @@ function generatingImgPairs():void {
         alertResultTrip("Hiányzó adat, adatok!");
     }
 }
+
+let guitar01 = new GuitarsImages("img01");
+let guitar02 = new GuitarsImages("img02",true);
+guitar02.guitarIsItUp = true;
+let arr:any[]=[guitar01,guitar02];
+console.log(arr);
+
+function imgesObjLoad(imgNumbers:number):any{
+
+}
