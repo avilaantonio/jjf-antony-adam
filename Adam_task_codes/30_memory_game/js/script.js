@@ -42,7 +42,7 @@ const imgHolderDiv = document.getElementById('imgHolderDiv');
 function generatedCards(numberOfCards) {
     let randomPic = [];
     do {
-        let randomNumber = Math.floor(Math.random() * (numberOfCards)) + 1;
+        let randomNumber = Math.floor(Math.random() * (Number(numberOfCards) * 2)) + 1;
         //console.log(randomNumber);
         if (!randomPic.includes(randomNumber)) {
             randomPic.push(randomNumber);
@@ -69,7 +69,7 @@ function generatingImgPairs() {
     }
     else if (isValidateData(getIdValidateRequest())) {
         alertPlaceholder.innerHTML = "";
-        let imgNumbersArray = generatedCards((document.getElementById('imgNumberPicker').value) * 2);
+        let imgNumbersArray = generatedCards(document.getElementById('imgNumberPicker').value);
         imgArrayUploadHtml(imgNumbersArray);
     }
     else {

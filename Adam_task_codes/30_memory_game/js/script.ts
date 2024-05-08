@@ -34,7 +34,7 @@ function isValidateData(x:any):boolean {
 
 function parseDataFrom(idfrom:string):any {
     //console.log(idfrom);
-    let data: any = document.getElementById(idfrom)!.value;
+    let data: any = (document.getElementById(idfrom) as HTMLInputElement).value;
     //console.log(data, typeof (data));
     return data;
 }
@@ -43,10 +43,10 @@ function parseDataFrom(idfrom:string):any {
 
 const imgHolderDiv = document.getElementById('imgHolderDiv');
 
-function generatedCards(numberOfCards:number):number[] {
+function generatedCards(numberOfCards:any):number[] {
     let randomPic:number[] = [];
     do {
-        let randomNumber:number = Math.floor(Math.random() * (numberOfCards)) + 1;
+        let randomNumber:number = Math.floor(Math.random() * (Number(numberOfCards)*2)) + 1;
         //console.log(randomNumber);
         if (!randomPic.includes(randomNumber)) {
             randomPic.push(randomNumber);
@@ -74,7 +74,7 @@ function generatingImgPairs():void {
         alertResultTrip("Túl nagy számot adott meg!");
     } else if (isValidateData(getIdValidateRequest())) {
         alertPlaceholder!.innerHTML = "";
-        let imgNumbersArray:number[] = generatedCards((document.getElementById('imgNumberPicker')!.value) * 2);
+        let imgNumbersArray:number[] = generatedCards((document.getElementById('imgNumberPicker') as HTMLInputElement).value);
         imgArrayUploadHtml(imgNumbersArray);
     } else {
         alertResultTrip("Hiányzó adat, adatok!");
