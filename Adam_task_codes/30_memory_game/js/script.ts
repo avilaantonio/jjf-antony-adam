@@ -1,4 +1,5 @@
 const inputHandler = new InputHandler('imgNumberPicker');
+(<HTMLInputElement> document.getElementById("executeBtn")).disabled = false;
 
 const alertPlaceholder:any = document.getElementById('liveAlertPlaceholder');
 const alertResultTrip = (message:string) => {
@@ -26,7 +27,7 @@ function isValidateData(x:any):boolean {
     let isValueAllRequestedInputs:boolean = true;
     console.log(parseDataFrom(x));
     x.forEach((req: any) => {
-        if (!parseDataFrom(req) || parseDataFrom(req) > 16) {
+        if (!parseDataFrom(req) || parseDataFrom(req) > 18) {
             isValueAllRequestedInputs = false;
         }
     });
@@ -59,13 +60,31 @@ function generatedCards(numberOfCards:any):number[] {
     return randomPic;
 }
 
-function imgArrayUploadHtml(imgNumbersArray:number[]):void {
+function doImgPathPairs(imgArr:Array<any>):Array<any>{
+    imgArr.forEach(img => {
+        let imgNumber:string = img.guitarName.slice(-2); 
+        if (imgNumber != '00' && imgNumber != '01' && Number(imgNumber)%2 !=0) {
+            let temp:number = Number(imgNumber);
+            temp = (temp-1)/2;
+            console.log(temp);
+            img.guitarPath = `img/guitars/img${('0' + (temp)).slice(-2)}.jpg`;
+        } else if (imgNumber == '01') {
+            img.guitarPath  = "img/guitars/img00.jpg";
+        } else {
+            let temp:number = Number(imgNumber);
+            temp = (temp)/2;
+            img.guitarPath = `img/guitars/img${('0' + (temp)).slice(-2)}.jpg`;
+        }
+    });
+    return imgArr;
+}
+
+function imgArrayUploadHtml(imgArr:Array<any>):void {
     imgHolderDiv!.innerHTML = "";
-    imgNumbersArray.forEach(img => {
+    imgArr.forEach(img => {
         let wrapper = imgHolderDiv;
         wrapper!.innerHTML += [
-            `<div class="rounded bg-light" style="width: 8rem; height: 8rem;">`,
-            `   <p class="mx-auto my-auto text-center fs-1">${img}.</p>`,
+            `<div class="rounded bg-light" style="width: 8rem; height: 8rem; background: url('${img.guitarPath}') no-repeat; background-size: cover;">`,
             '</div>'
         ].join('');
     });
@@ -73,7 +92,7 @@ function imgArrayUploadHtml(imgNumbersArray:number[]):void {
 
 function validateGeneratingImgPairs(imgArrLength:number):boolean {
     let isItGenerate:boolean = false;
-    if (imgArrLength > 16 || imgArrLength == 0 ) {
+    if (imgArrLength > 18 || imgArrLength == 0 ) {
         alertResultTrip("Nem megfelelő számot adott meg!");
     } else if (isValidateData(getIdValidateRequest())) {
         isItGenerate = true;
@@ -86,10 +105,20 @@ function validateGeneratingImgPairs(imgArrLength:number):boolean {
 function fillImgArrClass (imgArrLength:number):Array<any>{
     let imgArr:Array<any> = [];
     for (let i = 0; i < imgArrLength; i++) {
-        imgArr.push(new GuitarsImages(`#img${('0' + (i)).slice(-2)}`));
+        imgArr.push(new GuitarsImages(`img${('0' + (i)).slice(-2)}`));
     }
+    imgArr = doImgPathPairs(imgArr);
     console.log(imgArr);
     return imgArr;
+}
+
+function randomizeImg (imgNumbersArr:number[],imgArr:Array<any>):Array<any>{
+    let randomImgArr:Array<any> = [];
+    imgNumbersArr.forEach(img => {
+        randomImgArr.push(imgArr[img]);
+    });
+    console.log(randomImgArr);
+    return randomImgArr;
 }
 
 function imgArrayUpload ():void {
@@ -97,8 +126,7 @@ function imgArrayUpload ():void {
     if (validateGeneratingImgPairs(imgArrLength)){
         alertPlaceholder!.innerHTML = "";
         let imgNumbersArray:number[] = generatedCards(imgArrLength*2);
-        imgArrayUploadHtml(imgNumbersArray);
-        fillImgArrClass(imgArrLength*2);
+        imgArrayUploadHtml(randomizeImg(imgNumbersArray, fillImgArrClass(imgArrLength*2)));
     }
     
 }

@@ -7,6 +7,9 @@ class InputHandler {
     handleKeyUp(event) {
         const input = event.target;
         if (event.code === "Enter") {
+            if (document.getElementById("executeBtn").disabled) {
+                return;
+            }
             console.log(`Entert nyomtam: ${input.value}`);
             imgArrayUpload();
         }
