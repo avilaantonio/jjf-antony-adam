@@ -46,7 +46,7 @@ const imgHolderDiv = document.getElementById('imgHolderDiv');
 function generatedCards(numberOfCards:any):number[] {
     let randomPic:number[] = [];
     do {
-        let randomNumber:number = Math.floor(Math.random() * (Number(numberOfCards)*2)) + 1;
+        let randomNumber:number = Math.floor(Math.random() * (Number(numberOfCards))) + 1;
         //console.log(randomNumber);
         if (!randomPic.includes(randomNumber)) {
             randomPic.push(randomNumber);
@@ -70,11 +70,13 @@ function imgArrayUploadHtml(imgNumbersArray:number[]):void {
 }
 
 function generatingImgPairs():void {
-    if (parseDataFrom(getIdValidateRequest()) > 16) {
-        alertResultTrip("Túl nagy számot adott meg!");
+    if (parseDataFrom(getIdValidateRequest()) > 16 || parseDataFrom(getIdValidateRequest()) == 0 ) {
+        alertResultTrip("Nem megfelelő számot adott meg!");
     } else if (isValidateData(getIdValidateRequest())) {
         alertPlaceholder!.innerHTML = "";
-        let imgNumbersArray:number[] = generatedCards((document.getElementById('imgNumberPicker') as HTMLInputElement).value);
+        let inputNumber:any = (document.getElementById('imgNumberPicker') as HTMLInputElement).value;
+        console.log(inputNumber,inputNumber.value,inputNumber.value*2);
+        let imgNumbersArray:number[] = generatedCards(inputNumber.value*2);
         imgArrayUploadHtml(imgNumbersArray);
     } else {
         alertResultTrip("Hiányzó adat, adatok!");
@@ -83,6 +85,8 @@ function generatingImgPairs():void {
 
 let guitar01 = new GuitarsImages("img01");
 let guitar02 = new GuitarsImages("img02",true);
+guitar02.isItUp = true;
+console.log(guitar02);
 guitar02.guitarIsItUp = true;
 let arr:any[]=[guitar01,guitar02];
 console.log(arr);
