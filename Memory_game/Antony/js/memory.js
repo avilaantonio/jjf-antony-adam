@@ -15,7 +15,7 @@ function generateRandomPicArrangement(numberOfCards) {
             pictures.push(images[randomNumber])
         }
     } while (pictures.length != numberOfCards);
-    return pictures;   
+    return pictures;
 }
 
 function getNumberOfCards() {
@@ -42,7 +42,7 @@ function generatedCards(numberOfCards, randomPictures) {
         wrapper.innerHTML = [
             `<div class="col mb-3">`,
             `   <div class="rounded">`,
-            `       <img id="${randomPictures[i]}" class="w-100" src="${randomPictures[i]}" alt="${randomPictures[i]}">`,
+            `       <img id="${randomPictures[i]}" class="w-100 selectedCard" src="${randomPictures[i]}" onclick="dispplayNone(this)">`,
             '   </div>',
             '</div>'
         ].join('');
@@ -50,23 +50,13 @@ function generatedCards(numberOfCards, randomPictures) {
     }
 }
 
-//------------- next ---------------
-// Select a card
-/*
-document.getElementsByClassName("selectCard").addEventListener("click", showImage);
+//------------- display none --------------
+function dispplayNone(image) {
+    console.log(image.id);
+    image.style.display = 'none';
+}
 
-let counter = 0;
-function showImage() {
-    counter++;
-    if (counter == 2) {
-        // comparison
-        // classList.remove('d-flex'); 
-        if (condition) {
-            
-        }
-        counter = 0;
-    }
-}
-    
-}
-*/
+
+
+
+
