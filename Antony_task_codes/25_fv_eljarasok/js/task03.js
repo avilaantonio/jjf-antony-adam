@@ -5,10 +5,9 @@ function solveTask03() {
     inputText = inputText.toLowerCase();
     let reversedText = getReversedText(inputText);    
     let isPolidrome = isTextPolidrome(inputText, reversedText);    
-    displayResultMessageOnHtmlT03(isPolidrome);
-    
-    
+    displayResultMessageOnHtmlT03(isPolidrome);    
 }
+
 function displayResultMessageOnHtmlT03(isPolidrome) {
     if (isPolidrome) {
         document.getElementById("result03").innerHTML = "A megadott szöveg polidrome!";
