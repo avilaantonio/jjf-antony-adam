@@ -3,7 +3,8 @@ class GuitarsImages {
     constructor(name, isItUp) {
         this.name = name;
         this.isItUp = false;
-        this.path = `img/guitars/${this.name}.jpg`;
+        this.imgPath = `img/guitars/${this.name}.jpg`;
+        this.bgImgPath = "img/guitars/bg.jpg";
     }
     get guitarName() {
         return this.name;
@@ -17,10 +18,16 @@ class GuitarsImages {
     set guitarIsItUp(isItUp) {
         this.isItUp = isItUp;
     }
-    get guitarPath() {
-        return this.path;
+    get guitarImgPath() {
+        return this.imgPath;
     }
-    set guitarPath(path) {
-        this.path = path;
+    set guitarImgPath(imgPath) {
+        this.imgPath = imgPath;
+    }
+    get guitarBgImgPath() {
+        return this.bgImgPath;
+    }
+    set guitarBgImgPath(bgImgPath) {
+        this.bgImgPath = bgImgPath;
     }
 }

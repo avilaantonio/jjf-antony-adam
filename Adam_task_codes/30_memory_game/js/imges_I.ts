@@ -1,17 +1,20 @@
 interface InterfaceImages {
     name:string;
     isItUp:boolean;
-    path:string;
+    imgPath:string;
+    bgImgPath:string;
 }
 
 class GuitarsImages implements InterfaceImages {
     name:string;
     isItUp:boolean;
-    path:string;
+    imgPath:string;
+    bgImgPath:string;
     constructor(name:string, isItUp?:boolean) {
         this.name = name;
         this.isItUp = false;
-        this.path = `img/guitars/${this.name}.jpg`;
+        this.imgPath = `img/guitars/${this.name}.jpg`;
+        this.bgImgPath = "img/guitars/bg.jpg";
     }
     get guitarName():string {
         return this.name;
@@ -25,10 +28,16 @@ class GuitarsImages implements InterfaceImages {
     set guitarIsItUp(isItUp:boolean) {
         this.isItUp = isItUp;
     }
-    get guitarPath():string | undefined {
-        return this.path;
+    get guitarImgPath():string | undefined {
+        return this.imgPath;
     }
-    set guitarPath(path:string) {
-        this.path = path;
+    set guitarImgPath(imgPath:string) {
+        this.imgPath = imgPath;
+    }
+    get guitarBgImgPath():string | undefined {
+        return this.bgImgPath;
+    }
+    set guitarBgImgPath(bgImgPath:string) {
+        this.bgImgPath = bgImgPath;
     }
 }

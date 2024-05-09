@@ -61,28 +61,29 @@ function doImgPathPairs(imgArr) {
             let temp = Number(imgNumber);
             temp = (temp - 1) / 2;
             console.log(temp);
-            img.guitarPath = `img/guitars/img${('0' + (temp)).slice(-2)}.jpg`;
+            img.guitarImgPath = `img/guitars/img${('0' + (temp)).slice(-2)}.jpg`;
         }
         else if (imgNumber == '01') {
-            img.guitarPath = "img/guitars/img00.jpg";
+            img.guitarImgPath = "img/guitars/img00.jpg";
         }
         else {
             let temp = Number(imgNumber);
             temp = (temp) / 2;
-            img.guitarPath = `img/guitars/img${('0' + (temp)).slice(-2)}.jpg`;
+            img.guitarImgPath = `img/guitars/img${('0' + (temp)).slice(-2)}.jpg`;
         }
     });
     return imgArr;
 }
-function imgArrayUploadHtml(imgArr) {
+function imgArrayUploadHtml(imgNumbersArr, imgArr) {
     imgHolderDiv.innerHTML = "";
     imgArr.forEach(img => {
         let wrapper = imgHolderDiv;
         wrapper.innerHTML += [
-            `<div class="rounded bg-light" style="width: 8rem; height: 8rem; background: url('${img.guitarPath}') no-repeat; background-size: cover;">`,
+            `<div class="rounded bg-light" style="width: 8rem; height: 8rem; background: url('${img.guitarBgImgPath}') no-repeat; background-size: cover; backround-color:#fff;">`,
             '</div>'
         ].join('');
     });
+    startGame(imgNumbersArr, imgArr);
 }
 function validateGeneratingImgPairs(imgArrLength) {
     let isItGenerate = false;
@@ -90,6 +91,7 @@ function validateGeneratingImgPairs(imgArrLength) {
         alertResultTrip("Nem megfelelő számot adott meg!");
     }
     else if (isValidateData(getIdValidateRequest())) {
+        document.getElementById("executeBtn").disabled = true;
         isItGenerate = true;
     }
     else {
@@ -119,6 +121,12 @@ function imgArrayUpload() {
     if (validateGeneratingImgPairs(imgArrLength)) {
         alertPlaceholder.innerHTML = "";
         let imgNumbersArray = generatedCards(imgArrLength * 2);
-        imgArrayUploadHtml(randomizeImg(imgNumbersArray, fillImgArrClass(imgArrLength * 2)));
+        imgArrayUploadHtml(imgNumbersArray, randomizeImg(imgNumbersArray, fillImgArrClass(imgArrLength * 2)));
     }
+}
+function startGame(imgNumbersArr, imgArr) {
+    imgArr.forEach(img => {
+        if (!img.guitarIsItUp) {
+        }
+    });
 }
