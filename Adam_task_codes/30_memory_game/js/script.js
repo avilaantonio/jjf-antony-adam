@@ -1,4 +1,5 @@
 "use strict";
+const inputHandler = new InputHandler('imgNumberPicker');
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
 const alertResultTrip = (message) => {
     alertPlaceholder.innerHTML = "";
@@ -42,7 +43,7 @@ const imgHolderDiv = document.getElementById('imgHolderDiv');
 function generatedCards(numberOfCards) {
     let randomPic = [];
     do {
-        let randomNumber = Math.floor(Math.random() * (Number(numberOfCards) * 2)) + 1;
+        let randomNumber = Math.floor(Math.random() * (Number(numberOfCards)));
         //console.log(randomNumber);
         if (!randomPic.includes(randomNumber)) {
             randomPic.push(randomNumber);
@@ -63,23 +64,33 @@ function imgArrayUploadHtml(imgNumbersArray) {
         ].join('');
     });
 }
-function generatingImgPairs() {
-    if (parseDataFrom(getIdValidateRequest()) > 16) {
-        alertResultTrip("Túl nagy számot adott meg!");
+function validateGeneratingImgPairs(imgArrLength) {
+    let isItGenerate = false;
+    if (imgArrLength > 16 || imgArrLength == 0) {
+        alertResultTrip("Nem megfelelő számot adott meg!");
     }
     else if (isValidateData(getIdValidateRequest())) {
-        alertPlaceholder.innerHTML = "";
-        let imgNumbersArray = generatedCards(document.getElementById('imgNumberPicker').value);
-        imgArrayUploadHtml(imgNumbersArray);
+        isItGenerate = true;
     }
     else {
         alertResultTrip("Hiányzó adat, adatok!");
     }
+    return isItGenerate;
 }
-let guitar01 = new GuitarsImages("img01");
-let guitar02 = new GuitarsImages("img02", true);
-guitar02.guitarIsItUp = true;
-let arr = [guitar01, guitar02];
-console.log(arr);
-function imgesObjLoad(imgNumbers) {
+function fillImgArrClass(imgArrLength) {
+    let imgArr = [];
+    for (let i = 0; i < imgArrLength; i++) {
+        imgArr.push(new GuitarsImages(`#img${('0' + (i)).slice(-2)}`));
+    }
+    console.log(imgArr);
+    return imgArr;
+}
+function imgArrayUpload() {
+    let imgArrLength = parseDataFrom(getIdValidateRequest());
+    if (validateGeneratingImgPairs(imgArrLength)) {
+        alertPlaceholder.innerHTML = "";
+        let imgNumbersArray = generatedCards(imgArrLength * 2);
+        imgArrayUploadHtml(imgNumbersArray);
+        fillImgArrClass(imgArrLength * 2);
+    }
 }
