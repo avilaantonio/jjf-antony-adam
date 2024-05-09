@@ -84,7 +84,7 @@ function imgArrayUploadHtml(imgNumbersArr:number[],imgArr:Array<any>):void {
     imgArr.forEach(img => {
         let wrapper = imgHolderDiv;
         wrapper!.innerHTML += [
-            `<div class="rounded bg-light" style="width: 8rem; height: 8rem; background: url('${img.guitarBgImgPath}') no-repeat; background-size: cover; backround-color:#fff;">`,
+            `<div id="${img.guitarName}" class="rounded bg-light" style="width: 8rem; height: 8rem; background: url('${img.guitarBgImgPath}') no-repeat; background-size: cover; backround-color:#fff;">`,
             '</div>'
         ].join('');
     });
@@ -133,10 +133,22 @@ function imgArrayUpload ():void {
 }
 
 function startGame(imgNumbersArr:number[],imgArr:Array<any>){
-    imgArr.forEach(img => {
-        if(!img.guitarIsItUp){
+    (<HTMLElement> document.getElementById("containerChoose")).classList.add("d-none");
+    let counter:number = 0;
+    let imgHolderDiv:any = (<HTMLDivElement> document.getElementById("imgHolderDiv"));
+    ((imgHolderDiv.querySelectorAll(":scope> .rounded"))).forEach((imgDiv:any) => {
+        imgDiv.addEventListener('click', function () {
+            console.log(imgDiv.id);
+            console.log(imgArr);
+            imgArr.filter(img => {
+                if (!img.guitarIsItUp && img.guitarName === imgDiv.id) {
+                    console.log("bent vagyok "+img.guitarIsItUp);
+                    (<HTMLDivElement> document.getElementById(img.guitarName)).style.backgroundImage = `url('${img.guitarImgPath}')`;
+                }
+        });
 
-        }
+            
+        })
     })
 }
 

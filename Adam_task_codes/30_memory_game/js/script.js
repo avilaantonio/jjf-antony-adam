@@ -79,7 +79,7 @@ function imgArrayUploadHtml(imgNumbersArr, imgArr) {
     imgArr.forEach(img => {
         let wrapper = imgHolderDiv;
         wrapper.innerHTML += [
-            `<div class="rounded bg-light" style="width: 8rem; height: 8rem; background: url('${img.guitarBgImgPath}') no-repeat; background-size: cover; backround-color:#fff;">`,
+            `<div id="${img.guitarName}" class="rounded bg-light" style="width: 8rem; height: 8rem; background: url('${img.guitarBgImgPath}') no-repeat; background-size: cover; backround-color:#fff;">`,
             '</div>'
         ].join('');
     });
@@ -125,8 +125,19 @@ function imgArrayUpload() {
     }
 }
 function startGame(imgNumbersArr, imgArr) {
-    imgArr.forEach(img => {
-        if (!img.guitarIsItUp) {
-        }
+    document.getElementById("containerChoose").classList.add("d-none");
+    let counter = 0;
+    let imgHolderDiv = document.getElementById("imgHolderDiv");
+    ((imgHolderDiv.querySelectorAll(":scope> .rounded"))).forEach((imgDiv) => {
+        imgDiv.addEventListener('click', function () {
+            console.log(imgDiv.id);
+            console.log(imgArr);
+            imgArr.filter(img => {
+                if (!img.guitarIsItUp && img.guitarName === imgDiv.id) {
+                    console.log("bent vagyok " + img.guitarIsItUp);
+                    document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarImgPath}')`;
+                }
+            });
+        });
     });
 }
