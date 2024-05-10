@@ -19,24 +19,19 @@ function getIdValidateRequest() {
         }
         ;
     });
-    //console.log(id);
     return id;
 }
 function isValidateData(x) {
     let isValueAllRequestedInputs = true;
-    console.log(parseDataFrom(x));
     x.forEach((req) => {
         if (!parseDataFrom(req) || parseDataFrom(req) > 18) {
             isValueAllRequestedInputs = false;
         }
     });
-    console.log(isValueAllRequestedInputs);
     return isValueAllRequestedInputs;
 }
 function parseDataFrom(idfrom) {
-    //console.log(idfrom);
     let data = document.getElementById(idfrom).value;
-    //console.log(data, typeof (data));
     return data;
 }
 /****************************************************************************************************** */
@@ -45,13 +40,10 @@ function generatedCards(numberOfCards) {
     let randomPic = [];
     do {
         let randomNumber = Math.floor(Math.random() * (Number(numberOfCards)));
-        //console.log(randomNumber);
         if (!randomPic.includes(randomNumber)) {
             randomPic.push(randomNumber);
-            //console.log(randomPic);
         }
     } while (randomPic.length != numberOfCards);
-    //console.log(randomPic);
     return randomPic;
 }
 function doImgPathPairs(imgArr) {
@@ -60,7 +52,6 @@ function doImgPathPairs(imgArr) {
         if (imgNumber != '00' && imgNumber != '01' && Number(imgNumber) % 2 != 0) {
             let temp = Number(imgNumber);
             temp = (temp - 1) / 2;
-            console.log(temp);
             img.guitarImgPath = `img/guitars/img${('0' + (temp)).slice(-2)}.jpg`;
         }
         else if (imgNumber == '01') {
@@ -105,7 +96,6 @@ function fillImgArrClass(imgArrLength) {
         imgArr.push(new GuitarsImages(`img${('0' + (i)).slice(-2)}`));
     }
     imgArr = doImgPathPairs(imgArr);
-    console.log(imgArr);
     return imgArr;
 }
 function randomizeImg(imgNumbersArr, imgArr) {
@@ -113,7 +103,6 @@ function randomizeImg(imgNumbersArr, imgArr) {
     imgNumbersArr.forEach(img => {
         randomImgArr.push(imgArr[img]);
     });
-    console.log(randomImgArr);
     return randomImgArr;
 }
 function imgArrayUpload() {
@@ -126,18 +115,70 @@ function imgArrayUpload() {
 }
 function startGame(imgNumbersArr, imgArr) {
     document.getElementById("containerChoose").classList.add("d-none");
+    let isItPairs = isItPair(imgArr);
+}
+function isItPair(imgArr) {
+    let isItPair = false;
     let counter = 0;
+    let tempImgPath, tempImgName;
     let imgHolderDiv = document.getElementById("imgHolderDiv");
-    ((imgHolderDiv.querySelectorAll(":scope> .rounded"))).forEach((imgDiv) => {
-        imgDiv.addEventListener('click', function () {
-            console.log(imgDiv.id);
-            console.log(imgArr);
-            imgArr.filter(img => {
-                if (!img.guitarIsItUp && img.guitarName === imgDiv.id) {
-                    console.log("bent vagyok " + img.guitarIsItUp);
-                    document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarImgPath}')`;
-                }
+    do {
+        ((imgHolderDiv.querySelectorAll(":scope> .rounded"))).forEach((imgDiv) => {
+            imgDiv.addEventListener('click', function () {
+                imgArr.filter(img => {
+                    if (!img.guitarIsItUp && img.guitarName === imgDiv.id && counter == 1 && img.guitarImgPath == tempImgPath) {
+                        counter += 1;
+                        isItPair = true;
+                        img.guitarIsItUp = true;
+                        document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarImgPath}')`;
+                        setTimeout(() => {
+                            thatWasAll(imgArr);
+                        }, 1500);
+                    }
+                    else if (!img.guitarIsItUp && img.guitarName === imgDiv.id && counter < 1) {
+                        tempImgPath = img.guitarImgPath;
+                        tempImgName = img.guitarName;
+                        counter += 1;
+                        img.guitarIsItUp = true;
+                        document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarImgPath}')`;
+                    }
+                    else if (!img.guitarIsItUp && img.guitarName === imgDiv.id && counter == 1 && img.guitarImgPath != tempImgPath) {
+                        counter += 1;
+                        img.guitarIsItUp = true;
+                        document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarImgPath}')`;
+                        setTimeout(() => {
+                            theyAreNotPair(tempImgName, img.guitarName, imgArr);
+                        }, 1500);
+                    }
+                });
             });
         });
+    } while (counter > 1);
+}
+function theyAreNotPair(firstImgName, secondImgName, imgArr) {
+    imgArr.forEach(img => {
+        if (img.guitarName == firstImgName) {
+            img.guitarIsItUp = false;
+            document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarBgImgPath}')`;
+        }
+        else if (img.guitarName == secondImgName) {
+            img.guitarIsItUp = false;
+            document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarBgImgPath}')`;
+        }
     });
+    isItPair(imgArr);
+}
+function thatWasAll(imgArr) {
+    let counter = 0;
+    imgArr.forEach(img => {
+        if (!img.guitarIsItUp) {
+            counter += 1;
+        }
+    });
+    if (counter == 0) {
+        alertResultTrip("Gratulálok, nyertél!");
+    }
+    else {
+        isItPair(imgArr);
+    }
 }
