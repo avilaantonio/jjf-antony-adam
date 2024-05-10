@@ -2,12 +2,12 @@ const inputHandler = new InputHandler('imgNumberPicker');
 (<HTMLInputElement> document.getElementById("executeBtn")).disabled = false;
 
 const alertPlaceholder:any = document.getElementById('liveAlertPlaceholder');
-const alertResultTrip = (message:string) => {
+const alertResultTrip = (message:string, state:string) => {
     alertPlaceholder!.innerHTML = "";
     let wrapper:any = alertPlaceholder;
     wrapper.innerHTML = [
-        `<div class="alert alert-danger alert-dismissible fade show mt-3 mx-auto p-3 border border-2 border-danger" role="alert">`,
-        `   <span class="text-center fs-5 fw-semibold text-danger">${message}</span>`,
+        `<div class="alert alert-${state} alert-dismissible fade show mt-3 mx-auto p-3 border border-2 border-${state}" role="alert">`,
+        `   <span class="text-center fs-5 fw-semibold text-${state}">${message}</span>`,
         '</div>'
     ].join('');
 }
@@ -85,12 +85,12 @@ function imgArrayUploadHtml(imgNumbersArr:number[],imgArr:Array<any>):void {
 function validateGeneratingImgPairs(imgArrLength:number):boolean {
     let isItGenerate:boolean = false;
     if (imgArrLength > 18 || imgArrLength == 0 ) {
-        alertResultTrip("Nem megfelelő számot adott meg!");
+        alertResultTrip("Nem megfelelő számot adott meg!","danger");
     } else if (isValidateData(getIdValidateRequest())) {
         (<HTMLInputElement> document.getElementById("executeBtn")).disabled = true;
         isItGenerate = true;
     } else {
-        alertResultTrip("Hiányzó adat, adatok!");
+        alertResultTrip("Hiányzó adat, adatok!","danger");
     }
     return isItGenerate;
 }
@@ -120,6 +120,8 @@ function imgArrayUpload ():void {
         imgArrayUploadHtml(imgNumbersArray,randomizeImg(imgNumbersArray, fillImgArrClass(imgArrLength*2)));
     }
 }
+
+/************************ Game ***************************/
 
 function startGame(imgNumbersArr:number[],imgArr:Array<any>){
     (<HTMLElement> document.getElementById("containerChoose")).classList.add("d-none");
@@ -183,7 +185,13 @@ function thatWasAll(imgArr:Array<any>){
         }
     });
     if (counter == 0) {
-        alertResultTrip("Gratulálok, nyertél!");
+        alertResultTrip("Gratulálok, nyertél!","success");
+        setTimeout(() => {
+            alertResultTrip("Az új játék 5 másodperc múlva indul","info");
+        }, 3500);
+        setTimeout(() => {
+        location.reload();
+        }, 8500);
     } else {
         isItPair(imgArr);
     }

@@ -2,12 +2,12 @@
 const inputHandler = new InputHandler('imgNumberPicker');
 document.getElementById("executeBtn").disabled = false;
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
-const alertResultTrip = (message) => {
+const alertResultTrip = (message, state) => {
     alertPlaceholder.innerHTML = "";
     let wrapper = alertPlaceholder;
     wrapper.innerHTML = [
-        `<div class="alert alert-danger alert-dismissible fade show mt-3 mx-auto p-3 border border-2 border-danger" role="alert">`,
-        `   <span class="text-center fs-5 fw-semibold text-danger">${message}</span>`,
+        `<div class="alert alert-${state} alert-dismissible fade show mt-3 mx-auto p-3 border border-2 border-${state}" role="alert">`,
+        `   <span class="text-center fs-5 fw-semibold text-${state}">${message}</span>`,
         '</div>'
     ].join('');
 };
@@ -79,14 +79,14 @@ function imgArrayUploadHtml(imgNumbersArr, imgArr) {
 function validateGeneratingImgPairs(imgArrLength) {
     let isItGenerate = false;
     if (imgArrLength > 18 || imgArrLength == 0) {
-        alertResultTrip("Nem megfelelő számot adott meg!");
+        alertResultTrip("Nem megfelelő számot adott meg!", "danger");
     }
     else if (isValidateData(getIdValidateRequest())) {
         document.getElementById("executeBtn").disabled = true;
         isItGenerate = true;
     }
     else {
-        alertResultTrip("Hiányzó adat, adatok!");
+        alertResultTrip("Hiányzó adat, adatok!", "danger");
     }
     return isItGenerate;
 }
@@ -113,6 +113,7 @@ function imgArrayUpload() {
         imgArrayUploadHtml(imgNumbersArray, randomizeImg(imgNumbersArray, fillImgArrClass(imgArrLength * 2)));
     }
 }
+/************************ Game ***************************/
 function startGame(imgNumbersArr, imgArr) {
     document.getElementById("containerChoose").classList.add("d-none");
     let isItPairs = isItPair(imgArr);
@@ -176,7 +177,13 @@ function thatWasAll(imgArr) {
         }
     });
     if (counter == 0) {
-        alertResultTrip("Gratulálok, nyertél!");
+        alertResultTrip("Gratulálok, nyertél!", "success");
+        setTimeout(() => {
+            alertResultTrip("Az új játék 5 másodperc múlva indul", "info");
+        }, 3500);
+        setTimeout(() => {
+            location.reload();
+        }, 8500);
     }
     else {
         isItPair(imgArr);
