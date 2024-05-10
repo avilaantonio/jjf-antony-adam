@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flipping cards</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  .square-div {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    margin: 10px;
+  }
+  .square-div img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="square-div" id="div1">
+        <img src="image1.jpg" style="display: none;">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="square-div" id="div2">
+        <img src="image2.jpg" style="display: none;">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="square-div" id="div3">
+        <img src="image3.jpg" style="display: none;">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="square-div" id="div4">
+        <img src="image4.jpg" style="display: none;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
