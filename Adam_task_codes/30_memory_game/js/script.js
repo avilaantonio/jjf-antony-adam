@@ -6,14 +6,14 @@ const alertResultTrip = (message, state) => {
     alertPlaceholder.innerHTML = "";
     let wrapper = alertPlaceholder;
     wrapper.innerHTML = [
-        `<div class="alert alert-${state} alert-dismissible fade show mt-3 mx-auto p-3 border border-2 border-${state}" role="alert">`,
-        `   <span class="text-center fs-5 fw-semibold text-${state}">${message}</span>`,
+        `<div class="alert alert-${state} mx-auto p-2 border border-3 border-${state}" role="alert" style="opacity: 1; transition: opacity 1s;>`,
+        `   <span class="text-center fs-2 fw-semibold text-${state}">${message}</span>`,
         '</div>'
     ].join('');
 };
 function getIdValidateRequest() {
     let id = [];
-    document.querySelectorAll(`body>div>div>div>div input, select`).forEach((req) => {
+    document.querySelectorAll(`#inputDiv input`).forEach((req) => {
         if (req.required == true) {
             id.push(req.id);
         }
@@ -24,7 +24,7 @@ function getIdValidateRequest() {
 function isValidateData(x) {
     let isValueAllRequestedInputs = true;
     x.forEach((req) => {
-        if (!parseDataFrom(req) || parseDataFrom(req) > 18) {
+        if (!parseDataFrom(req) || parseDataFrom(req) > 25) {
             isValueAllRequestedInputs = false;
         }
     });
@@ -67,10 +67,11 @@ function doImgPathPairs(imgArr) {
 }
 function imgArrayUploadHtml(imgNumbersArr, imgArr) {
     imgHolderDiv.innerHTML = "";
+    imgHolderDiv === null || imgHolderDiv === void 0 ? void 0 : imgHolderDiv.classList.remove("border", "border-3", "border-dark", "bg-dark");
     imgArr.forEach(img => {
         let wrapper = imgHolderDiv;
         wrapper.innerHTML += [
-            `<div id="${img.guitarName}" class="rounded bg-light" style="width: 8rem; height: 8rem; background: url('${img.guitarBgImgPath}') no-repeat; background-size: cover; backround-color:#fff;">`,
+            `<div id="${img.guitarName}" class="fade show rounded bg-light border border-dark border-2 shadow" style="width: 8rem; height: 8rem; background: url('${img.guitarBgImgPath}') no-repeat; background-size: cover; backround-color:#000; transition: opacity 0.3s linear !important;">`,
             '</div>'
         ].join('');
     });
@@ -78,15 +79,15 @@ function imgArrayUploadHtml(imgNumbersArr, imgArr) {
 }
 function validateGeneratingImgPairs(imgArrLength) {
     let isItGenerate = false;
-    if (imgArrLength > 18 || imgArrLength == 0) {
-        alertResultTrip("Nem megfelelő számot adott meg!", "danger");
+    if (imgArrLength > 25 || imgArrLength == 0) {
+        alertResultTrip("Nem megfelelő számot adott meg! (1-25)", "danger");
     }
     else if (isValidateData(getIdValidateRequest())) {
         document.getElementById("executeBtn").disabled = true;
         isItGenerate = true;
     }
     else {
-        alertResultTrip("Hiányzó adat, adatok!", "danger");
+        alertResultTrip("Hiányzó adat, adatok! (1-25)", "danger");
     }
     return isItGenerate;
 }
@@ -115,6 +116,7 @@ function imgArrayUpload() {
 }
 /************************ Game ***************************/
 function startGame(imgNumbersArr, imgArr) {
+    document.getElementById("containerChoose").classList.remove("show");
     document.getElementById("containerChoose").classList.add("d-none");
     let isItPairs = isItPair(imgArr);
 }
@@ -131,7 +133,9 @@ function isItPair(imgArr) {
                         counter += 1;
                         isItPair = true;
                         img.guitarIsItUp = true;
+                        document.getElementById(img.guitarName).classList.remove("show");
                         document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarImgPath}')`;
+                        document.getElementById(img.guitarName).classList.add("show");
                         setTimeout(() => {
                             thatWasAll(imgArr);
                         }, 1500);
@@ -141,12 +145,16 @@ function isItPair(imgArr) {
                         tempImgName = img.guitarName;
                         counter += 1;
                         img.guitarIsItUp = true;
+                        document.getElementById(img.guitarName).classList.remove("show");
                         document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarImgPath}')`;
+                        document.getElementById(img.guitarName).classList.add("show");
                     }
                     else if (!img.guitarIsItUp && img.guitarName === imgDiv.id && counter == 1 && img.guitarImgPath != tempImgPath) {
                         counter += 1;
                         img.guitarIsItUp = true;
+                        document.getElementById(img.guitarName).classList.remove("show");
                         document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarImgPath}')`;
+                        document.getElementById(img.guitarName).classList.add("show");
                         setTimeout(() => {
                             theyAreNotPair(tempImgName, img.guitarName, imgArr);
                         }, 1500);
@@ -160,11 +168,15 @@ function theyAreNotPair(firstImgName, secondImgName, imgArr) {
     imgArr.forEach(img => {
         if (img.guitarName == firstImgName) {
             img.guitarIsItUp = false;
+            document.getElementById(img.guitarName).classList.remove("show");
             document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarBgImgPath}')`;
+            document.getElementById(img.guitarName).classList.add("show");
         }
         else if (img.guitarName == secondImgName) {
             img.guitarIsItUp = false;
+            document.getElementById(img.guitarName).classList.remove("show");
             document.getElementById(img.guitarName).style.backgroundImage = `url('${img.guitarBgImgPath}')`;
+            document.getElementById(img.guitarName).classList.add("show");
         }
     });
     isItPair(imgArr);
@@ -177,9 +189,9 @@ function thatWasAll(imgArr) {
         }
     });
     if (counter == 0) {
-        alertResultTrip("Gratulálok, nyertél!", "success");
+        alertResultTrip("Gratulálok, nyertél!", "success fs-2");
         setTimeout(() => {
-            alertResultTrip("Az új játék 5 másodperc múlva indul", "info");
+            alertResultTrip("Az új játék 5 másodperc múlva indul", "light fs-2");
         }, 3500);
         setTimeout(() => {
             location.reload();
